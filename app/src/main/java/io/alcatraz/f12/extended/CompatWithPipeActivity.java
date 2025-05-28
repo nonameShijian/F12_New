@@ -74,7 +74,12 @@ public class CompatWithPipeActivity extends WebViewUpgradeAppCompatActivity {
         IntentFilter ifil = new IntentFilter();
         ifil.addAction(Constants.BROADCAST_ACTION_UPDATE_PREFERENCES);
         updatePreferenceReceiver = new UpdatePreferenceReceiver();
-        registerReceiver(updatePreferenceReceiver, ifil);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            registerReceiver(updatePreferenceReceiver, ifil, Context.RECEIVER_NOT_EXPORTED);
+        }
+        else {
+            registerReceiver(updatePreferenceReceiver, ifil);
+        }
     }
 
     @Override
