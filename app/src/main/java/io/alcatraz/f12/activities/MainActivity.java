@@ -48,12 +48,13 @@ public class MainActivity extends CompatWithPipeActivity implements View.OnClick
     CardView help;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
         refresh();
     }
+    private static final String TAG = "MainActivity";
 
     private void findViews() {
         toolbar = findViewById(R.id.main_toolbar);
@@ -79,11 +80,9 @@ public class MainActivity extends CompatWithPipeActivity implements View.OnClick
         settings.setOnClickListener(this);
         help.setOnClickListener(this);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!Settings.canDrawOverlays(this)) {
-                Toast.makeText(this, R.string.toast_cant_overlay, Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())));
-            }
+        if (!Settings.canDrawOverlays(this)) {
+            Toast.makeText(this, R.string.toast_cant_overlay, Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())));
         }
         @SuppressLint("InflateParams") View tutorial = getLayoutInflater().inflate(R.layout.dialog_tutorial,null);
         new AlertDialog.Builder(this)

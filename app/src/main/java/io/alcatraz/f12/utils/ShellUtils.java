@@ -60,8 +60,8 @@ public class ShellUtils {
                     continue;
                 }
                 if (needLogging)
-                // donnot use os.writeBytes(commmand), avoid chinese charset error
-                os.write(command.getBytes());
+                    // donnot use os.writeBytes(commmand), avoid chinese charset error
+                    os.write(command.getBytes());
                 os.writeBytes(COMMAND_LINE_END);
                 os.flush();
             }

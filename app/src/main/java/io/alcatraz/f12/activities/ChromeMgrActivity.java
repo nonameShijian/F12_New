@@ -22,7 +22,7 @@ public class ChromeMgrActivity extends CompatWithPipeActivity {
 
     ChromeAdapter adapter;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chrome_mgr);
         initViews();

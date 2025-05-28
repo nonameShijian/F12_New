@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -131,8 +132,10 @@ public class ChromeAdapter extends RecyclerView.Adapter<ChromeAdapter.ChromeHold
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Page clicked_page = pages.get(i);
+                    LogBuff.E(clicked_page.toString());
+                    Log.e("pages", clicked_page.toString());
                     Intent intent = new Intent(context, InDebuggerActivity.class);
-                    intent.putExtra(InDebuggerActivity.KEY_DEBUGGER_URL,clicked_page.getDevtoolsFrontendUrl());
+                    intent.putExtra(InDebuggerActivity.KEY_DEBUGGER_URL, "https://localhost/devtools-frontend/devtools_app.html?" + clicked_page.getWebSocketDebuggerUrl().replace("ws://", "ws="));
                     context.startActivity(intent);
                 }
             });

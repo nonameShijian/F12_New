@@ -14,7 +14,7 @@ public class PreferenceInnerActivity extends CompatWithPipeActivity {
     Toolbar toolbar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preference_inner);
         toolbar = findViewById(R.id.preference_act_toolbar);

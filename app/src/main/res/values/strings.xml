@@ -51,4 +51,9 @@
     <string name="au_l_4">Open source Licenses</string>
     <string name="au_l_4_1">Respect to opensource</string>
     <string name="au_osp">Opensource Projects</string>
+
+    <string name="webview_selection_activity_name">WebView 实现</string>
+    <string name="webview_selection_activity_title">设置本应用内的WebView实现</string>
+    <string name="webview_selection_activity_intro">修改此设置后退出本页面将自动重启应用(安卓8以下无法判断，将直接重启)！若选择比正在使用的Webview版本低的内核，Webview数据将会被清空！</string>
+
 </resources>

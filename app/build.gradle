@@ -1,11 +1,19 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    namespace "io.alcatraz.f12"
+    buildFeatures {
+        buildConfig true
+        aidl true
+    }
+    //noinspection GradleDependency
+    compileSdkVersion 35
+    buildToolsVersion "35.0.0"
     defaultConfig {
         applicationId "io.alcatraz.f12"
-        minSdkVersion 21
-        targetSdkVersion 28
+        minSdkVersion 24
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 35
         versionCode 3
         versionName "0.4_2020_4_20"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -15,6 +23,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility = "17"
+        targetCompatibility = "17"
     }
 }
 
@@ -29,4 +41,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "androidx.webkit:webkit:1.4.0"
+    // implementation 'dev.rikka.shizuku:api:13.1.5'
+    // implementation 'dev.rikka.shizuku:provider:13.1.5'
 }

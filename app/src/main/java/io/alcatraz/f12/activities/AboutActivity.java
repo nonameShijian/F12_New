@@ -44,7 +44,7 @@ public class AboutActivity extends CompatWithPipeActivity {
     Vibrator vibrator;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         initData();

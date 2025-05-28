@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.noname.core.activities.WebViewUpgradeAppCompatActivity;
+
 import io.alcatraz.f12.Constants;
 import io.alcatraz.f12.F12Application;
 import io.alcatraz.f12.socat.ForwardingManager;
@@ -19,7 +22,7 @@ import io.alcatraz.f12.utils.PermissionInterface;
 import io.alcatraz.f12.utils.SharedPreferenceUtil;
 
 @SuppressLint("Registered")
-public class CompatWithPipeActivity extends AppCompatActivity {
+public class CompatWithPipeActivity extends WebViewUpgradeAppCompatActivity {
     PermissionInterface pi;
     UpdatePreferenceReceiver updatePreferenceReceiver;
 
@@ -38,7 +41,7 @@ public class CompatWithPipeActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         loadPrefernce();
         registReceivers();

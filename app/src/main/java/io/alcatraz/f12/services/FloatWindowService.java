@@ -210,14 +210,19 @@ public class FloatWindowService extends Service implements View.OnClickListener 
 
         window_webview.getSettings().setDomStorageEnabled(true);
         window_webview.getSettings().setDatabaseEnabled(true);
-        window_webview.getSettings().setAppCacheEnabled(true);
+        // window_webview.getSettings().setAppCacheEnabled(true);
     }
 
     private void registerReceiver(){
         chromeUpdateReceiver = new ChromeUpdateReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(ACTION_UPDATE);
-        registerReceiver(chromeUpdateReceiver,intentFilter);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            registerReceiver(chromeUpdateReceiver, intentFilter, Context.RECEIVER_NOT_EXPORTED);
+        }
+        else {
+            registerReceiver(chromeUpdateReceiver, intentFilter);
+        }
     }
 
     private void showPicker() {

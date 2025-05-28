@@ -110,10 +110,11 @@ public class ForwardingManager {
         public void run() {
             LogBuff.addDivider();
             LogBuff.I("Start active chrome scan");
-            ShellUtils.CommandResult scan_raw = ShellUtils.execCommand("cat /proc/net/unix | grep --text devtools_remote", true);
-            if(scan_raw.responseMsg.contains("Usage")){
-                scan_raw = ShellUtils.execCommand("cat /proc/net/unix | grep devtools_remote", true);
-            }
+            // 去掉了--text
+            ShellUtils.CommandResult scan_raw = ShellUtils.execCommand("cat /proc/net/unix | grep devtools_remote", true);
+//            if(scan_raw.responseMsg.contains("Usage")){
+//                scan_raw = ShellUtils.execCommand("cat /proc/net/unix | grep devtools_remote", true);
+//            }
             if (scan_raw.responseMsg.contains("devtools_remote")) {
                 final String[] process_0 = scan_raw.responseMsg.split("\n");
 

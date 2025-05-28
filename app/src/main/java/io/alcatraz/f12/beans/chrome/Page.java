@@ -58,4 +58,16 @@ public class Page {
         return webSocketDebuggerUrl;
     }
 
+    @Override
+    public String toString() {
+        return "Page{" +
+                "description='" + description + '\'' +
+                ", devtoolsFrontendUrl='" + devtoolsFrontendUrl + '\'' +
+                ", id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", type='" + type + '\'' +
+                ", url='" + url + '\'' +
+                ", webSocketDebuggerUrl='" + webSocketDebuggerUrl + '\'' +
+                '}';
+    }
 }
